@@ -28,10 +28,27 @@ int newCustomer()//new customer registration function
 }
 int oldCustomer()
 {
-    string name="";
+    string name="",name2="";
+    int ch;
     cout<<"Please enter your name";
+    cin>>name;
+    name2=name+" order history";
+    ofstream op;
+    ofstream opx;
+    op.open(name,ios::app);
+    cout<<"If you wish to make a new order, please press 1. Else, press 0";
+    cin>>ch;
+    if(ch==1)
+    newOrder(name);
     return 0;
 
+}
+int newOrder(string name)
+{
+    string name2=name+" order history";
+    ofstream op;
+    op.open(name2,ios::app);
+    return 0;
 }
 
 int main()
@@ -41,5 +58,10 @@ int main()
     cin>>ch;
     if(ch==0)
     newCustomer();
+    if(ch==1)
+    {
+        oldCustomer();
+        
+    }
     return 0;
 }
