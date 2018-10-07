@@ -3,6 +3,35 @@
 #include<math.h>
 #include<fstream>
 using namespace std;
+int newOrder(string name)
+{
+    string name2=name+" order history";
+    int ch, quantity;
+    ofstream op;
+    op.open(name2,ios::app);
+    cout<<"\nEnter the item code for the product you wish to order \n";
+    cout<<"1. Tires\n2. Lights\n3. Oil \n";
+    cin>>ch;
+    cout<<"\nEnter the quantity of product you want\n";
+    cin>>quantity;
+    if(ch==1)
+    {
+        op<<"\nItem = Tires\n";
+        op<<"Quantity = "<<quantity;
+    }
+    if(ch==2)
+    {
+        op<<"\nItem = Lights\n";
+        op<<"Quantity = "<<quantity; 
+    }
+    if(ch==3)
+    {
+        op<<"\nItem = Oil\n";
+        op<<"Quantity = "<<quantity;
+    }
+    cout<<"Your order has been successfully placed and can be seen by checking your order history";
+    return 0;
+}
 int newCustomer()//new customer registration function
 {
     string name="", phoneNumber="", address="",name2="";
@@ -43,13 +72,7 @@ int oldCustomer()
     return 0;
 
 }
-int newOrder(string name)
-{
-    string name2=name+" order history";
-    ofstream op;
-    op.open(name2,ios::app);
-    return 0;
-}
+
 
 int main()
 {
