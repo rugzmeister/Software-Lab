@@ -1,13 +1,9 @@
-#include<iostream>
-#include<string.h>
-#include<math.h>
-#include<fstream>
+#include<bits/stdc++.h>
 using namespace std;
 int orderHistory(string name)//if user wants to check order history. still a work in progress. 
 {
-    string name2=name+" order history",history="",hs2="";
-    ifstream op;
-    op.open(name2,ios::app);
+    string name2=name+"order history",history="",hs2="";
+    ifstream op(name2.c_str());
     //op>>history;
     while(op>>hs2)
     history+=hs2;
@@ -17,13 +13,13 @@ int orderHistory(string name)//if user wants to check order history. still a wor
 }
 int newOrder(string name)//new order function, will write to both personal order history and common order file
 {
-    string name2=name+" order history";
+    string name2=name+"order history";
     int ch, quantity;
-    ofstream op;
-    ofstream opx;
-    opx.open("central orders",ios::app);
-    op.open(name2,ios::app);
-    opx<<"Order placed by : "<<name;
+    ofstream op(name2.c_str());
+    ofstream opx("central orders");
+    
+    
+    opx<<"Order placed by : /t "<<name;
     cout<<"\nEnter the item code for the product you wish to order \n";
     cout<<"1. Tires\n2. Lights\n3. Oil \n";
     cin>>ch;
@@ -50,7 +46,7 @@ int newOrder(string name)//new order function, will write to both personal order
         opx<<"\nItem = Oil\n";
         opx<<"Quantity = "<<quantity;
     }
-    cout<<"Your order has been successfully placed and can be seen by checking your order history";
+    cout<<"Your order has been successfully placed and can be seen by checking your order history"<<endl;
     op.close();
     opx.close();
     return 0;
@@ -61,12 +57,11 @@ int newCustomer()//new customer registration function
     int ch;
     cout<<"\nEnter your name\n";
     cin>>name;
-    ofstream op;
-    ofstream opx;
+    ofstream op(name.c_str());
+    ofstream opx(name2.c_str());
     name2=name+" order history";
-    opx.open(name2);
-    opx.close();
-    op.open(name,ios::app);//append mode 
+    
+    opx.close();//append mode 
     op<<"Customer Name = "<<name<<"\n";
     cout<<"\n Enter your phone number\n";
     cin>>phoneNumber;
@@ -90,9 +85,9 @@ int oldCustomer()
     cout<<"Please enter your name";
     cin>>name;
     name2=name+" order history";
-    ofstream op;
+    ofstream op(name.c_str());
     ofstream opx;
-    op.open(name,ios::app);
+    
     cout<<"If you wish to make a new order, please press 1. Else, press 0";
     cin>>ch;
     if(ch==1)
@@ -122,6 +117,6 @@ int main()
         cin>>name;
         orderHistory(name);
     }
-
+    
     return 0;
 }
