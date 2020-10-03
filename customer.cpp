@@ -25,26 +25,22 @@ int newOrder(string name)//new order function, will write to both personal order
     cin>>ch;
     cout<<"\nEnter the quantity of product you want\n";
     cin>>quantity;
-    if(ch==1)
-    {
-        op<<"\nItem = Tires\n";
-        op<<"Quantity = "<<quantity;
-        opx<<"\nItem = Tires\n";
-        opx<<"Quantity = "<<quantity;
-    }
-    if(ch==2)
-    {
-        op<<"\nItem = Lights\n";
-        op<<"Quantity = "<<quantity;
-        opx<<"\nItem = Lights\n";
-        opx<<"Quantity = "<<quantity; 
-    }
-    if(ch==3)
-    {
-        op<<"\nItem = Oil\n";
-        op<<"Quantity = "<<quantity;
-        opx<<"\nItem = Oil\n";
-        opx<<"Quantity = "<<quantity;
+    switch(ch){
+        case 1: op<<"\nItem = Tires\n";
+                op<<"Quantity = "<<quantity;
+                opx<<"\nItem = Tires\n";
+                opx<<"Quantity = "<<quantity;
+                break;
+        case 2: op<<"\nItem = Lights\n";
+                op<<"Quantity = "<<quantity;
+                opx<<"\nItem = Lights\n";
+                opx<<"Quantity = "<<quantity; 
+                break;
+        case 3: op<<"\nItem = Oil\n";
+                op<<"Quantity = "<<quantity;
+                opx<<"\nItem = Oil\n";
+                opx<<"Quantity = "<<quantity;  
+                break;
     }
     cout<<"Your order has been successfully placed and can be seen by checking your order history"<<endl;
     op.close();
