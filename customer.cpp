@@ -21,7 +21,7 @@ int newOrder(string name)//new order function, will write to both personal order
     
     opx<<"Order placed by : /t "<<name;
     cout<<"\nEnter the item code for the product you wish to order \n";
-    cout<<"1. Tires\n2. Lights\n3. Oil \n4. Bulbs";
+    cout<<"1. Tires\n2. Lights\n3. Oil \n";
     cin>>ch;
     cout<<"\nEnter the quantity of product you want\n";
     cin>>quantity;
@@ -39,11 +39,6 @@ int newOrder(string name)//new order function, will write to both personal order
         case 3: op<<"\nItem = Oil\n";
                 op<<"Quantity = "<<quantity;
                 opx<<"\nItem = Oil\n";
-                opx<<"Quantity = "<<quantity;  
-                break;
-        case 4: op<<"\nItem = Bulbs\n";
-                op<<"Quantity = "<<quantity;
-                opx<<"\nItem = Bulbs\n";
                 opx<<"Quantity = "<<quantity;  
                 break;
     }
