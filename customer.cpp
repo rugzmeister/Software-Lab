@@ -61,6 +61,13 @@ int newCustomer()//new customer registration function
     op<<"Customer Name = "<<name<<"\n";
     cout<<"\n Enter your phone number\n";
     cin>>phoneNumber;
+    
+    // Phone number correctnessbeing checked only digitwise
+    if (phoneNumber.length()!=10)
+    {
+        cout << "\n Please enter a correct phone number\n";
+        cin >> phoneNumber;
+    }
     cout<<"\n Enter your address\n";
     cin>>address;
     op<<"\nContact number = "<<phoneNumber<<"\n";
